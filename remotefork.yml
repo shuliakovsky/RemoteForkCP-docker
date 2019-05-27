@@ -1,0 +1,50 @@
+##############################################################
+#    RemoteFork & AceStream engine                           #
+#    Usage: docker-compose -f remotefork.yml up -d           #
+##############################################################
+version: '3.7'
+services:
+  remotefork:
+    image: microsoft/dotnet:2.0-sdk
+    restart: always
+    container_name: remotefork
+    hostname: remotefork
+    privileged: true
+    command: >
+        bash -c "chmod +x /opt/remotefork/RemoteForkCP && /opt/remotefork/RemoteForkCP"
+    tty: true
+    ports:
+      - "8027:8027"   # RemoteFork
+    stdin_open: true
+    volumes:
+      - type: bind
+        source: ./remotefork
+        target: /opt/remotefork
+
+  acestream:
+    image: debian:jessie-slim
+    restart: always
+    container_name: acestream
+    hostname: acestream
+    privileged: true
+    command: >
+        bash -c "apt-get update -y
+        && apt-get install -y libpython2.7 python-apsw python-setuptools net-tools libxslt1.1 sudo python-m2crypto
+        && apt-get install -y --no-install-recommends  wget
+        && cd /tmp/acestream
+        && tar --show-transformed-names --transform='s/acestream_3.1.16_debian_8.7_x86_64/acestream/' -vzxf acestream_3.1.16_debian_8.7_x86_64.tar.gz
+        && mv acestream /opt/
+        && mkdir -p /dev/disk/by-id
+        && /opt/acestream/start-engine --client-console --port 6287 \
+        --cache-dir /tmp/.ACEStream --state-dir /opt/state/.ACEStream \
+        --log-file /tmp/acestream.log --core-sandbox-max-peers 10 \
+        --live-buffer 20 --service-remote-access --stats-report-peers"
+    tty: true
+    ports:
+      - "6878:6878" # AceStream Engine
+      
+    stdin_open: true
+    volumes:
+      - type: bind
+        source: ./acestream
+        target: /tmp/acestream

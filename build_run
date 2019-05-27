@@ -1,0 +1,4 @@
+#!/bin/bash
+docker rm acestream -f
+docker rm remotefork -f
+docker-compose -f remotefork.yml up -d

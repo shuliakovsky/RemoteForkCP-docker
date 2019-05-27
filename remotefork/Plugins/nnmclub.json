@@ -1,0 +1,47 @@
+{
+  "SEPARATOR": ";",
+  "SETTINGS_VERSION": 1.2,
+  "PLUGIN_PATH": "pluginPath",
+  "TRACKER_SERVER": "https://nnmclub.to",
+  "LOGO": "http://assets.nnm-club.ws/forum/images/logos/10let8.png",
+  "ICONS": {
+    "ICO_SEARCH": "http://s1.iconbird.com/ico/0612/MustHave/w256h2561339195991Search256x256.png",
+    "ICO_FOLDER": "http://s1.iconbird.com/ico/1012/AmpolaIcons/w256h2561350597246folder.png",
+    "ICO_TORRENT_FILE": "http://s1.iconbird.com/ico/1012/AmpolaIcons/w256h2561350597291utorrent2.png",
+    "ICO_NOFILE": "https://avatanplus.com/files/resources/mid/5788db3ecaa49155ee986d6e.png",
+    "ICO_ERROR": "http://s1.iconbird.com/ico/0912/ToolbarIcons/w256h2561346685474SymbolError.png",
+    "ICO_AUDIO": "http://s1.iconbird.com/ico/1012/AmpolaIcons/w256h2561350597283musicfile.png",
+    "ICO_VIDEO": "http://s1.iconbird.com/ico/1012/AmpolaIcons/w256h2561350597291videofile.png",
+    "ICO_IMAGE": "http://s1.iconbird.com/ico/1012/AmpolaIcons/w256h2561350597278jpgfile.png",
+    "ICO_OTHER": "http://s1.iconbird.com/ico/2013/6/364/w256h2561372348486helpfile256.png"
+  },
+  "ACE_STREAM_API": {
+    "GET_CONTENT_ID": "http://api.torrentstream.net/upload/raw",
+    "GET_MEDIA_FILES_BY_TORRENT": "{0}/server/api?method=get_media_files&content_id={1}",
+    "GET_MEDIA_FILES_BY_MAGNET": "{0}/server/api?method=get_media_files&magnet={1}",
+    "GET_STREAM_BY_TORRENT": "{0}/ace/getstream?id={1}",
+    "GET_STREAM_BY_MAGNET": "{0}/ace/getstream?magnet={1}"
+  },
+  "REGEXP": {
+    "GET_PAGE_FILM_MAGNET": "(<a rel=\"nofollow\" href=\")(magnet.*?)(\")",
+    "GET_CONTENT_ID": "({\"content_id\":\")(.*?)(\"})",
+    "GET_ROOT_CATEGORIES": "(<span class=\"genmed\" style=\"line-height)([\\s\\S]*?)(<\\/span>)",
+    "GET_ROOT_CATEGORY": "(<a class=\"genmed\" href=\")(.*?)(\" title=\".*?\">)(.*?)(<\\/)",
+    "GET_SEARCH_PROW": "(<tr class=\"prow)([\\s\\S]*?)(<\\/tr>)",
+    "GET_SEARCH_GENMED": "(genmed topictitle\" href=\")(.*?)(\")",
+    "GET_SEARCH_BBA": "(\"><b>)(.*?)(<\\/b><\\/a>)",
+    "GET_SEARCH_BB": "(\"><b>)(.*?)(</b>)",
+    "GET_SEARCH_UTD": "(?<=</u>).*?(?=</td>)",
+    "GET_SEARCH_SEEDMED": "(class=\"seedmed\">)(.*?)(</td>)",
+    "GET_SEARCH_LEECHMED": "(ass=\"leechmed\">)(.*?)(</td>)",
+    "GET_CATEGORY_HEAD": "(<td class=\"pcatHead\"><img class=\"picon\")([\\s\\S]*?)(><\\/table>)",
+    "GET_CATEGORY_TITLE": "(<a class=\"pgenmed\".*?title=\")(.*?)(\">)",
+    "GET_CATEGORY_LINK": "(<a rel=\"nofollow\" href=\")(.*?)(\")",
+    "GET_CATEGORY_PORTAL_IMG": "(<var class=\"portalImg\".*?link=)(.*?)(\">)",
+    "GET_CATEGORY_NEXT_PAGE": "(<a href=\")((portal\\.php\\?c=\\d+&)(?:amp;)(start=\\d+))(\">([а-яА-Я]*?.?)<\\/a><\\/span>)",
+    "GET_CATEGORY_TITLE_A": "(<a class=\"pgenmed\".*?title=\")(.*?)(\">)",
+    "GET_CATEGORY_TIT_PIMS": "(<img)( class=\"tit-b pims\")( src=\")(.*?)(\".*?title=\")(.*?)(\".*?\"pcomm bold\">)(.*?)(<)",
+    "GET_CATEGORY_VAR_A": "(</var></a>)(.*?)(<br />)",
+    "GET_CATEGORY_BR_B": "(<br \\/>)(<b>.*)(<\\/span>)"
+  }
+}
